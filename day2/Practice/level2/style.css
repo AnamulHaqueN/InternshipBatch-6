@@ -1,0 +1,29 @@
+h1{
+    background-color: red;
+    width:200px;
+    text-align:center;
+}
+
+.border{
+    background-color:blanchedalmond;
+    height:100px;
+    width:200px;
+    text-align:center;
+    /* border-width:3px;
+    border-style:double;
+    border-color:blueviolet; */
+    border: 3px double blueviolet;
+    border-radius:10px;
+}
+
+.radius{
+    height: 150px;
+    width: 200px;
+    background-color:gainsboro;
+    border: 3px double blueviolet;
+    
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-top: 50px;
+    margin: 50px 0px 50px 100px;
+}
