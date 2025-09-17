@@ -10,11 +10,11 @@ formElement.addEventListener("submit", (e) => {
 
     let username = formData.get("user-name");
     let password = formData.get("password");
+    console.log(username, password);
     if(username == "" || password == "") {
-        alert("Please must filled the required field");
+        alert("Please must filled the required field before submit");
         return false;
     }
-    console.log(username, password);
 });
 
 loginBtn.addEventListener("click", ()=> {
