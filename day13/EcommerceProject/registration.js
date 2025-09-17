@@ -8,6 +8,7 @@ formElement.addEventListener("submit", (e) => {
     let formData = new FormData(formElement);
 
     let name = formData.get("name");
+    let email = formData.get("email");
     let userName = formData.get("user-name");
     let password = formData.get("password");
 
@@ -19,11 +20,28 @@ formElement.addEventListener("submit", (e) => {
         if(i >= '0' && i <= '9') digit = true;
     }
     if(!(n >= 5 && n <= 8) || !capital || !small || !digit) {
-        alert("password length is between (5 - 8) and must contain at least one capital, small and digit")
+        alert("password length is between (5 - 8) and must contain at least one capital, small and digit");
+        return false;
     } 
-    if(!name || !userName || !password) {
+    if(name === "" || email === "" || userName === "" || password === "") {
         alert("Please complete the required field");
+        return false;
     }
-
-    console.log(name, userName, password);
+    
+    const userData = {
+        name: name,
+        email: email,
+        userName: userName,
+        password: password
+    };
+    
+    const saveData = JSON.parse(localStorage.getItem(email.toString()));
+    if(saveData && saveData.email === userName) {
+        alert("This email name is taken");
+        return false;
+    }
+    localStorage.setItem(email.toString(), JSON.stringify(userData));
+    
+    console.log(name, email, userName, password);
+    window.location.href = "login.html";
 });
