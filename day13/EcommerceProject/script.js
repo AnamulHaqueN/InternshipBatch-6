@@ -1,10 +1,18 @@
-let loginBtn = document.getElementById("login-btn");
-let regBtn = document.getElementById("register-btn");
+const fs = require("fs");
+const rw = fs.readFileSync("data.json");
+const data = JSON.parse(rw);
 
-loginBtn.addEventListener("click", ()=> {
-    console.log("login btn was clicked");
-});
+let div = document.createElement("div");
+div.className = "container";
 
-regBtn.addEventListener("click", ()=> {
-    console.log("Registration btn was clicked");
-});
+console.log(div.classList);
+
+//console.log(data);
+
+/*
+let count = 1;
+for(i in data) {
+    console.log(count, data[i].imgUrl);
+    count++;
+}
+*/
