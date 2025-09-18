@@ -18,7 +18,9 @@ formElement.addEventListener("submit", (e) => {
     
     const saveData = JSON.parse(localStorage.getItem(email));
     if(saveData.email === email && saveData.password === password) {
-        window.location.href = "index.html";
+        const name = encodeURIComponent(userData.name);
+        window.location.href = `product.html?email=${encodeURIComponent(email)}&name=${name}`;
+        window.location.href = "product.html";
     }
 
 });
