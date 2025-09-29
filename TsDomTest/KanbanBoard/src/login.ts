@@ -9,9 +9,21 @@ let password = document.querySelector('#password') as HTMLInputElement;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let loginData = {
-        email: email.value,
-        password: password.value,
-    };
-    console.log(loginData);
+
+    const getEmail = localStorage.getItem(JSON.stringify(email.value));
+    //console.log(getEmail);
+    if(getEmail !== null) {
+        window.location.href = "board.html";
+    }
+    else {
+        alert("please enter a valid email");
+    }
+
+    //const saveData = JSON.parse(localStorage.getItem(JSON.stringify(email.value)));
+   
+    // let loginData = {
+    //     email: email.value,
+    //     password: password.value,
+    // };
+    // console.log(loginData);
 })
