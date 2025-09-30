@@ -75,7 +75,8 @@ function displayData() {
        <button onclick="moveProgress(${index})">MoveProgress</button>
        <button onclick="moveTesting(${index})">MoveTesting</button>
        <button onclick="moveFinished(${index})">MoveFinished</button>
-       <hr>
+       <hr><hr>
+       <br>
     `
   ) 
   .join("");  
@@ -130,7 +131,7 @@ showFormBtn2.addEventListener('click', () => {
   }
 });
 
-(window as any).deleteTask = (index: number) => {
+(window as any).deleteTask2 = (index: number) => {
   const tasks2: FormData[] = JSON.parse(localStorage.getItem('formData2') || '[]');
   tasks2.splice(index, 1);
   localStorage.setItem('formData2', JSON.stringify(tasks2));
@@ -148,8 +149,9 @@ function displayData2() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
-       <button onclick="deleteTask(${index})">Delete</button>
-       <hr>
+       <button onclick="deleteTask2(${index})">Delete</button>
+       <hr><hr>
+       <br>
     `
   ) 
   .join("");  
@@ -199,7 +201,7 @@ showFormBtn3.addEventListener('click', () => {
   }
 });
 
-(window as any).deleteTask = (index: number) => {
+(window as any).deleteTask3 = (index: number) => {
   const tasks: FormData[] = JSON.parse(localStorage.getItem('formData3') || '[]');
   tasks.splice(index, 1);
   localStorage.setItem('formData3', JSON.stringify(tasks));
@@ -217,8 +219,9 @@ function displayData3() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
-       <button onclick="deleteTask(${index})">Delete</button>
-       <hr>
+       <button onclick="deleteTask3(${index})">Delete</button>
+       <hr><hr>
+       <br>
     `
   ) 
   .join("");  
@@ -265,7 +268,7 @@ showFormBtn4.addEventListener('click', () => {
   }
 });
 
-(window as any).deleteTask = (index: number) => {
+(window as any).deleteTask4 = (index: number) => {
   const tasks: FormData[] = JSON.parse(localStorage.getItem('formData4') || '[]');
   tasks.splice(index, 1);
   localStorage.setItem('formData4', JSON.stringify(tasks));
@@ -283,8 +286,9 @@ function displayData4() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
-       <button onclick="deleteTask(${index})">Delete</button>
-       <hr>
+       <button onclick="deleteTask4(${index})">Delete</button>
+       <hr><hr>
+       <br>
     `
   ) 
   .join("");  
