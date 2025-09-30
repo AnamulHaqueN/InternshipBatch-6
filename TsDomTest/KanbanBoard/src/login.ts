@@ -11,15 +11,16 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const getEmail = localStorage.getItem(JSON.stringify(email.value));
-    //console.log(getEmail);
+    console.log(getEmail);
+    
+
     if(getEmail !== null) {
+        localStorage.setItem('logged', JSON.stringify(email.value));
         window.location.href = "board.html";
     }
     else {
         alert("please enter a valid email");
     }
-
-    //const saveData = JSON.parse(localStorage.getItem(JSON.stringify(email.value)));
    
     // let loginData = {
     //     email: email.value,
