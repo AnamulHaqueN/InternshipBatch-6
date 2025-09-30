@@ -123,7 +123,7 @@ form.addEventListener('submit', (e: Event) => {
   displayData();
   form.style.display = "none";
   showFormBtn.style.display = "block";
-  
+  form.reset();
 });
 
 

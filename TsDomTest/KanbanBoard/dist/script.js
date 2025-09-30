@@ -97,6 +97,7 @@ form.addEventListener('submit', (e) => {
     displayData();
     form.style.display = "none";
     showFormBtn.style.display = "block";
+    form.reset();
 });
 // for div 2
 const showFormBtn2 = document.getElementById('show-form-btn2');
