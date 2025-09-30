@@ -2,7 +2,8 @@
 type FormData = {
   title: string,
   description: string,
-  assignUser: string
+  assignUser: string,
+  createdBy: string,
 }
 
 // for login logout 
@@ -88,6 +89,7 @@ function displayData() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask(${index})">Delete</button>
        <br>
        <button onclick="moveProgress(${index})">MoveProgress</button>
@@ -110,7 +112,8 @@ form.addEventListener('submit', (e: Event) => {
   const data: FormData = {
     title: title,
     description: description,
-    assignUser: assignUser
+    assignUser: assignUser,
+    createdBy: JSON.parse(localStorage.getItem('login') || ''),
   }
 
   const getTask = JSON.parse(localStorage.getItem('formData') || '[]');
@@ -167,6 +170,7 @@ function displayData2() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask2(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -185,7 +189,8 @@ form2.addEventListener('submit', (e: Event) => {
   const data: FormData = {
     title: title,
     description: description,
-    assignUser: assignUser
+    assignUser: assignUser,
+    createdBy: JSON.parse(localStorage.getItem('login') || ''),
   }
 
   const getTask = JSON.parse(localStorage.getItem('formData2') || '[]');
@@ -237,6 +242,7 @@ function displayData3() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask3(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -255,7 +261,8 @@ form3.addEventListener('submit', (e: Event) => {
   const data: FormData = {
     title: title,
     description: description,
-    assignUser: assignUser
+    assignUser: assignUser,
+    createdBy: JSON.parse(localStorage.getItem('login') || ''),
   }
 
   const getTask = JSON.parse(localStorage.getItem('formData3') || '[]');
@@ -304,6 +311,7 @@ function displayData4() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask4(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -322,7 +330,8 @@ form4.addEventListener('submit', (e: Event) => {
   const data: FormData = {
     title: title,
     description: description,
-    assignUser: assignUser
+    assignUser: assignUser,
+    createdBy: JSON.parse(localStorage.getItem('login') || ''),
   }
 
   const getTask = JSON.parse(localStorage.getItem('formData4') || '[]');

@@ -68,6 +68,7 @@ function displayData() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask(${index})">Delete</button>
        <br>
        <button onclick="moveProgress(${index})">MoveProgress</button>
@@ -87,7 +88,8 @@ form.addEventListener('submit', (e) => {
     const data = {
         title: title,
         description: description,
-        assignUser: assignUser
+        assignUser: assignUser,
+        createdBy: JSON.parse(localStorage.getItem('login') || ''),
     };
     const getTask = JSON.parse(localStorage.getItem('formData') || '[]');
     getTask.push(data);
@@ -122,6 +124,7 @@ function displayData2() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask2(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -137,7 +140,8 @@ form2.addEventListener('submit', (e) => {
     const data = {
         title: title,
         description: description,
-        assignUser: assignUser
+        assignUser: assignUser,
+        createdBy: JSON.parse(localStorage.getItem('login') || ''),
     };
     const getTask = JSON.parse(localStorage.getItem('formData2') || '[]');
     getTask.push(data);
@@ -172,6 +176,7 @@ function displayData3() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask3(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -187,7 +192,8 @@ form3.addEventListener('submit', (e) => {
     const data = {
         title: title,
         description: description,
-        assignUser: assignUser
+        assignUser: assignUser,
+        createdBy: JSON.parse(localStorage.getItem('login') || ''),
     };
     const getTask = JSON.parse(localStorage.getItem('formData3') || '[]');
     getTask.push(data);
@@ -222,6 +228,7 @@ function displayData4() {
        <p><b>Title: </b> ${item.title}</p>
        <p>Description: ${item.description}</p>
        <p>Assigned User: ${item.assignUser}</p>
+       <p>Create By: ${item.createdBy}</p>
        <button onclick="deleteTask4(${index})">Delete</button>
        <hr><hr>
        <br>
@@ -237,7 +244,8 @@ form4.addEventListener('submit', (e) => {
     const data = {
         title: title,
         description: description,
-        assignUser: assignUser
+        assignUser: assignUser,
+        createdBy: JSON.parse(localStorage.getItem('login') || ''),
     };
     const getTask = JSON.parse(localStorage.getItem('formData4') || '[]');
     getTask.push(data);
