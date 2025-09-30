@@ -1,28 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form class="user-form" action="">
-        <div>
-            <label for="name">Name: </label>
-            <input type="text" id="name" placeholder="please enter your name: ">
-            <br>
-            <label for="email">Email: </label>
-            <input type="email" id="email" placeholder="please enter your email: ">
-            <br>
-        </div>
-            <div>
-               <button>Click me !</button>
-            </div>
-    </form>
+type FormData = {
+  title: string;
+  description: string;
+  assignedUser: string;
+}
+
+const showFormBtn = document.getElementById('show-form-btn') as HTMLButtonElement
+const form = document.querySelector('.task-form') as HTMLFormElement;
+
+const div = document.querySelector('#task') as HTMLDivElement;
 
 
+showFormBtn.addEventListener('click', () => {
+  if(form.style.display === "none") {
+    form.style.display = "block";
+    showFormBtn.style.display = "none";
+  }
+});
 
-    <script type="module" src = "./dist/script.js"></script>
-</body>
-</html>
+function displayData() {
+  const storeData: FormData[] = JSON.parse(localStorage.getItem('formData') || '[]');
+  if(storeData.length === 0) {
+    div.innerHTML = <p> No data is found </p>;
+    return;
+  }
+  div.innerHTML = storeData.map((item, index) => `<p><b>Title: </b> ${item.title}</p>
+   <p> Description: ${item.description} </p>
+   <p> Assigned User: ${item.assignedUser} </p>
+   <button onclick="deleteTask(${index})">Delete</button>
+   <hr>
+   `)
+   
+  .join("");
+}
+
+(window as any).deleteTask = (index: number) => {
+  const tasks: FormData[] = JSON.parse(localStorage.getItem('formData') || '[]');
+  tasks.splice(index, 1); // remove the item at the given index
+  localStorage.setItem('formData', JSON.stringify(tasks));
+  displayData(); // re-render list
+};
+
+
+displayData();
+
+form.addEventListener('submit', (e: Event) => {
+  e.preventDefault();
+  
+  const title = (document.querySelector('#title') as HTMLInputElement).value;
+  const description = (document.querySelector('#description') as HTMLInputElement).value;
+  const assignedUser = (document.querySelector('#assigned-user') as HTMLInputElement).value;
+  
+  const data: FormData = {
+    title: title,
+    description: description,
+    assignedUser: assignedUser
+  }
+
+  const getTask = JSON.parse(localStorage.getItem('formData') || '[]');
+  getTask.push(data);
+
+  localStorage.setItem("formData", JSON.stringify(getTask));
+  displayData();
+
+  form.style.display = "none";
+  showFormBtn.style.display = "block";
+  form.reset();
+});
