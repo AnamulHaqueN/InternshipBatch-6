@@ -5,6 +5,7 @@ console.log(form);
 
 let email = document.querySelector('#email') as HTMLInputElement;
 
+
 let password = document.querySelector('#password') as HTMLInputElement;
 
 form.addEventListener('submit', (e) => {
@@ -15,7 +16,7 @@ form.addEventListener('submit', (e) => {
     
 
     if(getEmail !== null) {
-        localStorage.setItem('logged', JSON.stringify(email.value));
+        localStorage.setItem("login", JSON.stringify(email.value));
         window.location.href = "board.html";
     }
     else {

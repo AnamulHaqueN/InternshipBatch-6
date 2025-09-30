@@ -7,7 +7,7 @@ form.addEventListener('submit', (e) => {
     const getEmail = localStorage.getItem(JSON.stringify(email.value));
     console.log(getEmail);
     if (getEmail !== null) {
-        localStorage.setItem('logged', JSON.stringify(email.value));
+        localStorage.setItem("login", JSON.stringify(email.value));
         window.location.href = "board.html";
     }
     else {

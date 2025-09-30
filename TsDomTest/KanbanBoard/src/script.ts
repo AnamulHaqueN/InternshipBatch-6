@@ -5,6 +5,24 @@ type FormData = {
   assignUser: string
 }
 
+// for login logout 
+const logInOut = document.getElementById('logout') as HTMLAnchorElement;
+
+logInOut.addEventListener('click', (e) => {
+  e.preventDefault();
+  let val = logInOut.getAttribute("value");
+
+  if(val === "logOut") {
+    window.location.href = "login.html";
+  }
+  if(val === "logIn") {
+    localStorage.setItem("login", "");
+    logInOut.innerHTML = "LogIn";
+    logInOut.style.backgroundColor = "green";
+    logInOut.setAttribute("value", "logOut");
+  }
+
+})
 
 const showFormBtn = document.getElementById('show-form-btn') as HTMLButtonElement;
 const form = document.querySelector('.task-form') as HTMLFormElement;
