@@ -1,3 +1,5 @@
+//localStorage.removeItem("userName");
+
 
 const form = document.querySelector('.user-form') as HTMLFormElement;
 
@@ -23,9 +25,9 @@ form.addEventListener('submit', (e: Event) => {
         password: password.value
     }
     console.log(registerData);
-    // const getName: string[] = JSON.parse(localStorage.getItem('userName') || '[]');
-    // getName.push(firstName.value);
-    // localStorage.setItem("userName", JSON.stringify(getName));
+    const getName: string[] = JSON.parse(localStorage.getItem('userName') || '[]');
+    getName.push(firstName.value);
+    localStorage.setItem("userName", JSON.stringify(getName));
 
     localStorage.setItem(JSON.stringify(email.value), JSON.stringify(registerData));
     window.location.href = "login.html";
